@@ -37,15 +37,14 @@ func _process(delta):
 		
 	elif velocity.y != 0:
 		$AnimatedSprite.animation = "up"
-		$AnimatedSprite.flip_h = velocity.y > 0
+		$AnimatedSprite.flip_v = velocity.y > 0
 
 func _on_Player_body_entered(body):
 	hide()
 	emit_signal("hit")
 	call_deferred("set_monitoring",false)
-
-# https://www.youtube.com/watch?v=zWAmbgqOWkI
+	
 func start(pos):
-	postion = pos
+	self.position = pos
 	show()
 	monitoring = true
